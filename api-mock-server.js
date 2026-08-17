@@ -25,26 +25,27 @@ const authenticateToken = (req, res, next) => {
   next();
 };
 
-// ==================== PRODUTOS ====================
-// Estrutura conforme DocumentaçãoOmniChat SearchProduct API
+// ==================== PRODUTOS - ESTRUTURA CONFORME OMNICHAT ====================
+// Array direto de produtos, retornado no endpoint /search
 
 const produtos = [
+  // ============== PASSAPORTE GOLD ANUAL ==============
   {
     blocked: false,
     objectId: "passport-gold-annual",
     name: "Passaporte Gold Anual",
-    productDescription: "Acesso ilimitado ao parque por 12 meses consecutivos com estacionamento incluso e 4 vouchers para acompanhante",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/ouro-anual",
+    productDescription: "Acesso ilimitado ao parque por 12 meses consecutivos. Inclui estacionamento grátis, 4 vouchers para acompanhante e acesso prioritário a filas. Ideal para quem quer aproveitar o parque o ano todo.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/ouro-anual",
     externalProduct: false,
     mainVariant: {
       objectId: "passport-gold-annual-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold+Anual",
       erpId: "SKU-BC-PGA-2024",
       name: "Passaporte Gold Anual",
       visible: true,
       price: 1890.00,
       salePrice: 1490.00,
-      quantity: 1000,
+      quantity: 500,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
       width: 10,
@@ -53,25 +54,29 @@ const produtos = [
       weight: 0.2,
       variations: [
         {
+          key: "Tipo",
+          value: "Gold"
+        },
+        {
           key: "Validade",
           value: "12 Meses"
         },
         {
-          key: "Tipo",
-          value: "Gold"
+          key: "Acesso",
+          value: "Ilimitado"
         }
       ]
     },
     variants: [
       {
         objectId: "passport-gold-annual-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold+Anual",
         erpId: "SKU-BC-PGA-2024",
         name: "Passaporte Gold Anual",
         visible: true,
         price: 1890.00,
         salePrice: 1490.00,
-        quantity: 1000,
+        quantity: 500,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
         width: 10,
@@ -80,12 +85,16 @@ const produtos = [
         weight: 0.2,
         variations: [
           {
+            key: "Tipo",
+            value: "Gold"
+          },
+          {
             key: "Validade",
             value: "12 Meses"
           },
           {
-            key: "Tipo",
-            value: "Gold"
+            key: "Acesso",
+            value: "Ilimitado"
           }
         ]
       }
@@ -93,85 +102,23 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== PASSAPORTE SILVER ANUAL ==============
   {
     blocked: false,
     objectId: "passport-silver-annual",
     name: "Passaporte Silver Anual",
-    productDescription: "Acesso ilimitado ao parque por 12 meses com bloqueios em feriados prolongados",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/prata-anual",
+    productDescription: "Acesso ao parque por 12 meses com bloqueios em feriados prolongados. Inclui estacionamento parcial e 2 vouchers para acompanhante. Excelente opção para uso regular.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/prata-anual",
     externalProduct: false,
     mainVariant: {
       objectId: "passport-silver-annual-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver+Anual",
       erpId: "SKU-BC-PSA-2024",
       name: "Passaporte Silver Anual",
       visible: true,
       price: 990.00,
       salePrice: 890.00,
-      quantity: 1500,
-      sellerId: "beto-carrero",
-      sellerName: "Beto Carrero World",
-      width: 10,
-      height: 15,
-      variantLength: 1,
-      weight: 0.2,
-      variations: [
-        {
-          key: "Validade",
-          value: "12 Meses"
-        },
-        {
-          key: "Tipo",
-          value: "Silver"
-        }
-      ]
-    },
-    variants: [
-      {
-        objectId: "passport-silver-annual-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver",
-        erpId: "SKU-BC-PSA-2024",
-        name: "Passaporte Silver Anual",
-        visible: true,
-        price: 990.00,
-        salePrice: 890.00,
-        quantity: 1500,
-        sellerId: "beto-carrero",
-        sellerName: "Beto Carrero World",
-        width: 10,
-        height: 15,
-        variantLength: 1,
-        weight: 0.2,
-        variations: [
-          {
-            key: "Validade",
-            value: "12 Meses"
-          },
-          {
-            key: "Tipo",
-            value: "Silver"
-          }
-        ]
-      }
-    ],
-    sellOutOfStock: false,
-    trackInventory: true
-  },
-  {
-    blocked: false,
-    objectId: "passport-gold-3days",
-    name: "Passaporte Gold 3 Dias",
-    productDescription: "Acesso ao parque por 3 dias consecutivos com estacionamento grátis e acesso VIP",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/ouro-3dias",
-    externalProduct: false,
-    mainVariant: {
-      objectId: "passport-gold-3days-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Gold+3+Dias",
-      erpId: "SKU-BC-PG3D-2024",
-      name: "Passaporte Gold 3 Dias",
-      visible: true,
-      price: 489.00,
-      salePrice: 429.00,
       quantity: 800,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
@@ -181,24 +128,28 @@ const produtos = [
       weight: 0.2,
       variations: [
         {
-          key: "Validade",
-          value: "3 Dias"
+          key: "Tipo",
+          value: "Silver"
         },
         {
-          key: "Tipo",
-          value: "Gold"
+          key: "Validade",
+          value: "12 Meses"
+        },
+        {
+          key: "Bloqueios",
+          value: "Feriados Prolongados"
         }
       ]
     },
     variants: [
       {
-        objectId: "passport-gold-3days-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Gold+3+Dias",
-        erpId: "SKU-BC-PG3D-2024",
-        name: "Passaporte Gold 3 Dias",
+        objectId: "passport-silver-annual-1",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver+Anual",
+        erpId: "SKU-BC-PSA-2024",
+        name: "Passaporte Silver Anual",
         visible: true,
-        price: 489.00,
-        salePrice: 429.00,
+        price: 990.00,
+        salePrice: 890.00,
         quantity: 800,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
@@ -208,12 +159,16 @@ const produtos = [
         weight: 0.2,
         variations: [
           {
-            key: "Validade",
-            value: "3 Dias"
+            key: "Tipo",
+            value: "Silver"
           },
           {
-            key: "Tipo",
-            value: "Gold"
+            key: "Validade",
+            value: "12 Meses"
+          },
+          {
+            key: "Bloqueios",
+            value: "Feriados Prolongados"
           }
         ]
       }
@@ -221,21 +176,23 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== PASSAPORTE GOLD 3 DIAS ==============
   {
     blocked: false,
-    objectId: "passport-silver-3days",
-    name: "Passaporte Silver 3 Dias",
-    productDescription: "Acesso ao parque por 3 dias consecutivos. Ideal para conhecer as principais atrações",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/prata-3dias",
+    objectId: "passport-gold-3days",
+    name: "Passaporte Gold 3 Dias",
+    productDescription: "Acesso ao parque por 3 dias consecutivos. Inclui estacionamento para todos os dias e acesso prioritário. Perfeito para férias curtas ou finais de semana prolongados.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/ouro-3dias",
     externalProduct: false,
     mainVariant: {
-      objectId: "passport-silver-3days-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Silver+3+Dias",
-      erpId: "SKU-BC-PS3D-2024",
-      name: "Passaporte Silver 3 Dias",
+      objectId: "passport-gold-3days-1",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold+3+Dias",
+      erpId: "SKU-BC-PG3-2024",
+      name: "Passaporte Gold 3 Dias",
       visible: true,
-      price: 289.00,
-      salePrice: 249.00,
+      price: 489.00,
+      salePrice: 429.00,
       quantity: 1200,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
@@ -245,24 +202,28 @@ const produtos = [
       weight: 0.2,
       variations: [
         {
-          key: "Validade",
+          key: "Tipo",
+          value: "Gold"
+        },
+        {
+          key: "Duração",
           value: "3 Dias"
         },
         {
-          key: "Tipo",
-          value: "Silver"
+          key: "Acesso",
+          value: "Consecutivo"
         }
       ]
     },
     variants: [
       {
-        objectId: "passport-silver-3days-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Silver+3+Dias",
-        erpId: "SKU-BC-PS3D-2024",
-        name: "Passaporte Silver 3 Dias",
+        objectId: "passport-gold-3days-1",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Gold+3+Dias",
+        erpId: "SKU-BC-PG3-2024",
+        name: "Passaporte Gold 3 Dias",
         visible: true,
-        price: 289.00,
-        salePrice: 249.00,
+        price: 489.00,
+        salePrice: 429.00,
         quantity: 1200,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
@@ -272,12 +233,16 @@ const produtos = [
         weight: 0.2,
         variations: [
           {
-            key: "Validade",
+            key: "Tipo",
+            value: "Gold"
+          },
+          {
+            key: "Duração",
             value: "3 Dias"
           },
           {
-            key: "Tipo",
-            value: "Silver"
+            key: "Acesso",
+            value: "Consecutivo"
           }
         ]
       }
@@ -285,12 +250,88 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== PASSAPORTE SILVER 3 DIAS ==============
+  {
+    blocked: false,
+    objectId: "passport-silver-3days",
+    name: "Passaporte Silver 3 Dias",
+    productDescription: "Acesso ao parque por 3 dias consecutivos. Inclui estacionamento e acesso básico. Ótima opção para visitantes ocasionais que desejam aproveitar vários dias.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/prata-3dias",
+    externalProduct: false,
+    mainVariant: {
+      objectId: "passport-silver-3days-1",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver+3+Dias",
+      erpId: "SKU-BC-PS3-2024",
+      name: "Passaporte Silver 3 Dias",
+      visible: true,
+      price: 289.00,
+      salePrice: 249.00,
+      quantity: 1500,
+      sellerId: "beto-carrero",
+      sellerName: "Beto Carrero World",
+      width: 10,
+      height: 15,
+      variantLength: 1,
+      weight: 0.2,
+      variations: [
+        {
+          key: "Tipo",
+          value: "Silver"
+        },
+        {
+          key: "Duração",
+          value: "3 Dias"
+        },
+        {
+          key: "Acesso",
+          value: "Consecutivo"
+        }
+      ]
+    },
+    variants: [
+      {
+        objectId: "passport-silver-3days-1",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Silver+3+Dias",
+        erpId: "SKU-BC-PS3-2024",
+        name: "Passaporte Silver 3 Dias",
+        visible: true,
+        price: 289.00,
+        salePrice: 249.00,
+        quantity: 1500,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 10,
+        height: 15,
+        variantLength: 1,
+        weight: 0.2,
+        variations: [
+          {
+            key: "Tipo",
+            value: "Silver"
+          },
+          {
+            key: "Duração",
+            value: "3 Dias"
+          },
+          {
+            key: "Acesso",
+            value: "Consecutivo"
+          }
+        ]
+      }
+    ],
+    sellOutOfStock: false,
+    trackInventory: true
+  },
+
+  // ============== PASSAPORTE 1 DIA ==============
   {
     blocked: false,
     objectId: "passport-1day",
     name: "Passaporte 1 Dia",
-    productDescription: "Acesso por 1 dia ao parque com acesso às principais atrações e áreas de alimentação",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/1dia",
+    productDescription: "Acesso ao parque por 1 dia inteiro. Inclui entrada e acesso a todas as atrações. Ideal para visitas rápidas ou para conhecer o parque antes de optar por passaporte anual.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/1dia",
     externalProduct: false,
     mainVariant: {
       objectId: "passport-1day-1",
@@ -309,8 +350,12 @@ const produtos = [
       weight: 0.2,
       variations: [
         {
-          key: "Validade",
+          key: "Duração",
           value: "1 Dia"
+        },
+        {
+          key: "Tipo",
+          value: "Básico"
         }
       ]
     },
@@ -332,8 +377,12 @@ const produtos = [
         weight: 0.2,
         variations: [
           {
-            key: "Validade",
+            key: "Duração",
             value: "1 Dia"
+          },
+          {
+            key: "Tipo",
+            value: "Básico"
           }
         ]
       }
@@ -341,22 +390,24 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== PASSAPORTE WEEKEND GOLD ==============
   {
     blocked: false,
     objectId: "passport-weekend-gold",
     name: "Passaporte Weekend Gold",
-    productDescription: "Acesso ilimitado aos sábados e domingos por 3 meses com estacionamento",
-    externalUrl: "https://www.betocarrero.com.br/passaportes/weekend-gold",
+    productDescription: "Acesso ao parque nos finais de semana (sábado e domingo). Inclui estacionamento e acesso prioritário. Perfeito para quem quer aproveitar os finais de semana do ano todo.",
+    externalUrl: "https://www2.betocarrero.com.br/passaportes/weekend-gold",
     externalProduct: false,
     mainVariant: {
       objectId: "passport-weekend-gold-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Weekend+Gold",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Weekend+Gold",
       erpId: "SKU-BC-PWG-2024",
       name: "Passaporte Weekend Gold",
       visible: true,
       price: 599.00,
       salePrice: 499.00,
-      quantity: 500,
+      quantity: 600,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
       width: 10,
@@ -365,25 +416,29 @@ const produtos = [
       weight: 0.2,
       variations: [
         {
-          key: "Validade",
-          value: "90 Dias"
+          key: "Tipo",
+          value: "Gold"
         },
         {
-          key: "Tipo",
-          value: "Weekend"
+          key: "Dias",
+          value: "Fins de Semana"
+        },
+        {
+          key: "Validade",
+          value: "12 Meses"
         }
       ]
     },
     variants: [
       {
         objectId: "passport-weekend-gold-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Weekend+Gold",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Passaporte+Weekend+Gold",
         erpId: "SKU-BC-PWG-2024",
         name: "Passaporte Weekend Gold",
         visible: true,
         price: 599.00,
         salePrice: 499.00,
-        quantity: 500,
+        quantity: 600,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
         width: 10,
@@ -392,12 +447,16 @@ const produtos = [
         weight: 0.2,
         variations: [
           {
-            key: "Validade",
-            value: "90 Dias"
+            key: "Tipo",
+            value: "Gold"
           },
           {
-            key: "Tipo",
-            value: "Weekend"
+            key: "Dias",
+            value: "Fins de Semana"
+          },
+          {
+            key: "Validade",
+            value: "12 Meses"
           }
         ]
       }
@@ -405,59 +464,87 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== FAST PASS - PULA FILA ==============
   {
     blocked: false,
     objectId: "fast-pass",
     name: "Fast Pass - Pula Fila",
-    productDescription: "Acesso prioritário às 10 atrações mais procuradas do parque",
-    externalUrl: "https://www.betocarrero.com.br/opcionais/fast-pass",
+    productDescription: "Acesso prioritário a 10 atrações principais do parque. Pule filas e aproveite mais o seu dia. Disponível em diferentes cores/opções.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/fast-pass",
     externalProduct: false,
     mainVariant: {
-      objectId: "fast-pass-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Fast+Pass",
-      erpId: "SKU-BC-FP-2024",
-      name: "Fast Pass",
+      objectId: "fast-pass-silver",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Fast+Pass+Silver",
+      erpId: "SKU-BC-FPS-2024",
+      name: "Fast Pass Silver (5 Atrações)",
       visible: true,
-      price: 189.00,
+      price: 199.00,
       salePrice: 159.00,
-      quantity: 600,
+      quantity: 400,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
-      width: 10,
-      height: 15,
-      variantLength: 1,
+      width: 5,
+      height: 10,
+      variantLength: 0.5,
       weight: 0.1,
       variations: [
         {
           key: "Tipo",
-          value: "Fast Pass"
+          value: "Silver"
         },
         {
           key: "Atrações",
-          value: "10 Principais"
+          value: "5 Principais"
         }
       ]
     },
     variants: [
       {
-        objectId: "fast-pass-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Fast+Pass",
-        erpId: "SKU-BC-FP-2024",
-        name: "Fast Pass",
+        objectId: "fast-pass-silver",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Fast+Pass+Silver",
+        erpId: "SKU-BC-FPS-2024",
+        name: "Fast Pass Silver (5 Atrações)",
         visible: true,
-        price: 189.00,
+        price: 199.00,
         salePrice: 159.00,
-        quantity: 600,
+        quantity: 400,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
-        width: 10,
-        height: 15,
-        variantLength: 1,
+        width: 5,
+        height: 10,
+        variantLength: 0.5,
         weight: 0.1,
         variations: [
           {
             key: "Tipo",
-            value: "Fast Pass"
+            value: "Silver"
+          },
+          {
+            key: "Atrações",
+            value: "5 Principais"
+          }
+        ]
+      },
+      {
+        objectId: "fast-pass-gold",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Fast+Pass+Gold",
+        erpId: "SKU-BC-FPG-2024",
+        name: "Fast Pass Gold (10 Atrações)",
+        visible: true,
+        price: 349.00,
+        salePrice: 299.00,
+        quantity: 250,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 5,
+        height: 10,
+        variantLength: 0.5,
+        weight: 0.1,
+        variations: [
+          {
+            key: "Tipo",
+            value: "Gold"
           },
           {
             key: "Atrações",
@@ -469,22 +556,24 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== SESSÃO DE FOTOS PROFISSIONAL ==============
   {
     blocked: false,
     objectId: "foto-profissional",
     name: "Sessão de Fotos Profissional",
-    productDescription: "Sessão de fotos profissional em locais estratégicos do parque com fotógrafo dedicado",
-    externalUrl: "https://www.betocarrero.com.br/opcionais/fotos",
+    productDescription: "Sessão de fotos profissional com fotógrafo dedicado em locais estratégicos do parque. Escolha entre diferentes pacotes de duração e número de fotos.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/fotos-profissionais",
     externalProduct: false,
     mainVariant: {
-      objectId: "foto-profissional-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Fotos+Profissionais",
-      erpId: "SKU-BC-FPR-2024",
-      name: "Sessão de Fotos Profissional",
+      objectId: "foto-prof-30min",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Fotos+Profissionais+30min",
+      erpId: "SKU-BC-FP30-2024",
+      name: "Sessão 30 Minutos (30 fotos)",
       visible: true,
       price: 299.00,
       salePrice: 249.00,
-      quantity: 300,
+      quantity: 150,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
       width: 10,
@@ -493,25 +582,25 @@ const produtos = [
       weight: 0.5,
       variations: [
         {
-          key: "Tipo",
-          value: "Fotografia"
-        },
-        {
           key: "Duração",
           value: "30 Minutos"
+        },
+        {
+          key: "Fotos",
+          value: "30 Fotos"
         }
       ]
     },
     variants: [
       {
-        objectId: "foto-profissional-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Fotos+Profissionais",
-        erpId: "SKU-BC-FPR-2024",
-        name: "Sessão de Fotos Profissional",
+        objectId: "foto-prof-30min",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Fotos+Profissionais+30min",
+        erpId: "SKU-BC-FP30-2024",
+        name: "Sessão 30 Minutos (30 fotos)",
         visible: true,
         price: 299.00,
         salePrice: 249.00,
-        quantity: 300,
+        quantity: 150,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
         width: 10,
@@ -520,12 +609,38 @@ const produtos = [
         weight: 0.5,
         variations: [
           {
-            key: "Tipo",
-            value: "Fotografia"
-          },
-          {
             key: "Duração",
             value: "30 Minutos"
+          },
+          {
+            key: "Fotos",
+            value: "30 Fotos"
+          }
+        ]
+      },
+      {
+        objectId: "foto-prof-60min",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Fotos+Profissionais+60min",
+        erpId: "SKU-BC-FP60-2024",
+        name: "Sessão 60 Minutos (60 fotos)",
+        visible: true,
+        price: 499.00,
+        salePrice: 429.00,
+        quantity: 100,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 10,
+        height: 15,
+        variantLength: 1,
+        weight: 0.5,
+        variations: [
+          {
+            key: "Duração",
+            value: "60 Minutos"
+          },
+          {
+            key: "Fotos",
+            value: "60 Fotos"
           }
         ]
       }
@@ -533,63 +648,303 @@ const produtos = [
     sellOutOfStock: false,
     trackInventory: true
   },
+
+  // ============== TOUR GUIADO PREMIUM ==============
   {
     blocked: false,
     objectId: "tour-guiado",
     name: "Tour Guiado Premium",
-    productDescription: "Tour guiado de 4 horas com especialista do parque incluindo história e curiosidades",
-    externalUrl: "https://www.betocarrero.com.br/opcionais/tour",
+    productDescription: "Tour guiado de 2 a 4 horas com especialista do parque. Conheça a história e curiosidades do Beto Carrero com um guia experiente.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/tour-guiado",
     externalProduct: false,
     mainVariant: {
-      objectId: "tour-guiado-1",
-      externalImageURL: "https://via.placeholder.com/400x300?text=Tour+Guiado",
-      erpId: "SKU-BC-TG-2024",
-      name: "Tour Guiado Premium",
+      objectId: "tour-2horas",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Tour+Guiado+2h",
+      erpId: "SKU-BC-TG2-2024",
+      name: "Tour Guiado 2 Horas",
       visible: true,
-      price: 349.00,
-      salePrice: 299.00,
-      quantity: 200,
+      price: 249.00,
+      salePrice: 199.00,
+      quantity: 80,
       sellerId: "beto-carrero",
       sellerName: "Beto Carrero World",
-      width: 10,
-      height: 15,
-      variantLength: 1,
-      weight: 0.3,
+      width: 0,
+      height: 0,
+      variantLength: 0,
+      weight: 0,
       variations: [
         {
-          key: "Tipo",
-          value: "Tour"
+          key: "Duração",
+          value: "2 Horas"
         },
         {
-          key: "Duração",
-          value: "4 Horas"
+          key: "Tipo",
+          value: "Guiado"
         }
       ]
     },
     variants: [
       {
-        objectId: "tour-guiado-1",
-        externalImageURL: "https://via.placeholder.com/400x300?text=Tour+Guiado",
-        erpId: "SKU-BC-TG-2024",
-        name: "Tour Guiado Premium",
+        objectId: "tour-2horas",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Tour+Guiado+2h",
+        erpId: "SKU-BC-TG2-2024",
+        name: "Tour Guiado 2 Horas",
+        visible: true,
+        price: 249.00,
+        salePrice: 199.00,
+        quantity: 80,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 0,
+        height: 0,
+        variantLength: 0,
+        weight: 0,
+        variations: [
+          {
+            key: "Duração",
+            value: "2 Horas"
+          },
+          {
+            key: "Tipo",
+            value: "Guiado"
+          }
+        ]
+      },
+      {
+        objectId: "tour-4horas",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Tour+Guiado+4h",
+        erpId: "SKU-BC-TG4-2024",
+        name: "Tour Guiado 4 Horas",
         visible: true,
         price: 349.00,
         salePrice: 299.00,
-        quantity: 200,
+        quantity: 60,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 0,
+        height: 0,
+        variantLength: 0,
+        weight: 0,
+        variations: [
+          {
+            key: "Duração",
+            value: "4 Horas"
+          },
+          {
+            key: "Tipo",
+            value: "Guiado Premium"
+          }
+        ]
+      }
+    ],
+    sellOutOfStock: false,
+    trackInventory: true
+  },
+
+  // ============== VOUCHER ALIMENTAÇÃO ==============
+  {
+    blocked: false,
+    objectId: "voucher-alimentacao",
+    name: "Voucher Alimentação",
+    productDescription: "Vale refeição para usar nos restaurantes e lanchonetes do parque. Disponível em diferentes valores.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/voucher-alimentacao",
+    externalProduct: false,
+    mainVariant: {
+      objectId: "voucher-100",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Voucher+R$100",
+      erpId: "SKU-BC-VA100-2024",
+      name: "Voucher R$ 100",
+      visible: true,
+      price: 100.00,
+      salePrice: 100.00,
+      quantity: 1000,
+      sellerId: "beto-carrero",
+      sellerName: "Beto Carrero World",
+      width: 10,
+      height: 5,
+      variantLength: 0.5,
+      weight: 0.05,
+      variations: [
+        {
+          key: "Valor",
+          value: "R$ 100"
+        }
+      ]
+    },
+    variants: [
+      {
+        objectId: "voucher-100",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Voucher+R$100",
+        erpId: "SKU-BC-VA100-2024",
+        name: "Voucher R$ 100",
+        visible: true,
+        price: 100.00,
+        salePrice: 100.00,
+        quantity: 1000,
         sellerId: "beto-carrero",
         sellerName: "Beto Carrero World",
         width: 10,
-        height: 15,
-        variantLength: 1,
+        height: 5,
+        variantLength: 0.5,
+        weight: 0.05,
+        variations: [
+          {
+            key: "Valor",
+            value: "R$ 100"
+          }
+        ]
+      },
+      {
+        objectId: "voucher-200",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Voucher+R$200",
+        erpId: "SKU-BC-VA200-2024",
+        name: "Voucher R$ 200",
+        visible: true,
+        price: 200.00,
+        salePrice: 200.00,
+        quantity: 800,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 10,
+        height: 5,
+        variantLength: 0.5,
+        weight: 0.05,
+        variations: [
+          {
+            key: "Valor",
+            value: "R$ 200"
+          }
+        ]
+      }
+    ],
+    sellOutOfStock: false,
+    trackInventory: true
+  },
+
+  // ============== WELCOME PACKAGE ==============
+  {
+    blocked: false,
+    objectId: "welcome-package",
+    name: "Welcome Package VIP",
+    productDescription: "Pacote de boas-vindas com mapa do parque, camiseta exclusiva, copo colecionável e adesivos. Para tornar sua visita ainda mais especial.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/welcome-package",
+    externalProduct: false,
+    mainVariant: {
+      objectId: "welcome-package-1",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Welcome+Package",
+      erpId: "SKU-BC-WP-2024",
+      name: "Welcome Package VIP",
+      visible: true,
+      price: 89.90,
+      salePrice: 74.90,
+      quantity: 300,
+      sellerId: "beto-carrero",
+      sellerName: "Beto Carrero World",
+      width: 15,
+      height: 10,
+      variantLength: 5,
+      weight: 0.3,
+      variations: [
+        {
+          key: "Tipo",
+          value: "VIP"
+        },
+        {
+          key: "Itens",
+          value: "4 Peças"
+        }
+      ]
+    },
+    variants: [
+      {
+        objectId: "welcome-package-1",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Welcome+Package",
+        erpId: "SKU-BC-WP-2024",
+        name: "Welcome Package VIP",
+        visible: true,
+        price: 89.90,
+        salePrice: 74.90,
+        quantity: 300,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 15,
+        height: 10,
+        variantLength: 5,
         weight: 0.3,
         variations: [
           {
             key: "Tipo",
-            value: "Tour"
+            value: "VIP"
           },
           {
-            key: "Duração",
-            value: "4 Horas"
+            key: "Itens",
+            value: "4 Peças"
+          }
+        ]
+      }
+    ],
+    sellOutOfStock: false,
+    trackInventory: true
+  },
+
+  // ============== SEGURO CANCELAMENTO ==============
+  {
+    blocked: false,
+    objectId: "seguro-cancelamento",
+    name: "Seguro Cancelamento",
+    productDescription: "Proteção contra cancelamento por motivos de saúde ou força maior. Proteja seu investimento em passaportes e pacotes.",
+    externalUrl: "https://www2.betocarrero.com.br/opcionais/seguro",
+    externalProduct: false,
+    mainVariant: {
+      objectId: "seguro-std",
+      externalImageURL: "https://via.placeholder.com/400x300?text=Seguro+Cancelamento",
+      erpId: "SKU-BC-SC-2024",
+      name: "Seguro Cancelamento Padrão",
+      visible: true,
+      price: 69.90,
+      salePrice: 59.90,
+      quantity: 500,
+      sellerId: "beto-carrero",
+      sellerName: "Beto Carrero World",
+      width: 0,
+      height: 0,
+      variantLength: 0,
+      weight: 0,
+      variations: [
+        {
+          key: "Tipo",
+          value: "Padrão"
+        },
+        {
+          key: "Cobertura",
+          value: "100%"
+        }
+      ]
+    },
+    variants: [
+      {
+        objectId: "seguro-std",
+        externalImageURL: "https://via.placeholder.com/400x300?text=Seguro+Cancelamento",
+        erpId: "SKU-BC-SC-2024",
+        name: "Seguro Cancelamento Padrão",
+        visible: true,
+        price: 69.90,
+        salePrice: 59.90,
+        quantity: 500,
+        sellerId: "beto-carrero",
+        sellerName: "Beto Carrero World",
+        width: 0,
+        height: 0,
+        variantLength: 0,
+        weight: 0,
+        variations: [
+          {
+            key: "Tipo",
+            value: "Padrão"
+          },
+          {
+            key: "Cobertura",
+            value: "100%"
           }
         ]
       }
@@ -599,59 +954,78 @@ const produtos = [
   }
 ];
 
-// ==================== FUNÇÕES AUXILIARES ====================
+// ==================== FUNÇÕES DE BUSCA ====================
 
-function searchByText(query, products) {
-  if (!query || query.trim() === '') {
-    return products;
-  }
-
-  const lowerQuery = query.toLowerCase();
-  return products.filter(p =>
-    p.name.toLowerCase().includes(lowerQuery) ||
-    p.productDescription.toLowerCase().includes(lowerQuery) ||
-    p.mainVariant.name.toLowerCase().includes(lowerQuery)
+const searchByText = (query, produtos) => {
+  if (!query) return produtos;
+  const q = query.toLowerCase();
+  return produtos.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.productDescription.toLowerCase().includes(q) ||
+    p.objectId.toLowerCase().includes(q)
   );
-}
+};
 
-function searchById(id, products) {
-  return products.filter(p => p.objectId === id);
-}
+const searchById = (query, produtos) => {
+  return produtos.filter(p => p.objectId === query);
+};
 
-function searchBySKU(sku, products) {
-  return products.filter(p => p.mainVariant.erpId === sku);
-}
+const searchBySKU = (query, produtos) => {
+  return produtos.filter(p =>
+    p.mainVariant.erpId === query ||
+    p.variants.some(v => v.erpId === query)
+  );
+};
 
-function searchByURL(url, products) {
-  return products.filter(p => p.externalUrl === url);
-}
+const searchByURL = (query, produtos) => {
+  return produtos.filter(p => p.externalUrl === query);
+};
 
-function searchByReference(reference, products) {
-  return products.filter(p => p.mainVariant.erpId === reference);
-}
+const searchByReference = (query, produtos) => {
+  // Para referência, procura em objectId ou erpId
+  const q = query.toLowerCase();
+  return produtos.filter(p =>
+    p.objectId.toLowerCase() === q ||
+    p.mainVariant.erpId.toLowerCase() === q
+  );
+};
 
-// ==================== ROTAS ====================
+// ==================== ENDPOINTS ====================
 
-// Health check
+// Health Check
 app.get('/health', (req, res) => {
-  res.json({ status: 'API Mockada Online - Beto Carrero' });
+  res.json({
+    status: 'ok',
+    version: '3.0',
+    timestamp: new Date().toISOString(),
+    message: 'API Mock Beto Carrero - OmniChat SearchProduct API v3.0',
+    documentation: 'https://developers.omni.chat/docs/how-to-implement-the-searchproduct-api'
+  });
 });
 
-// Documentação da API
+// Endpoint raiz com informações
 app.get('/', (req, res) => {
   res.json({
-    name: 'API Mock - Beto Carrero World',
-    version: '2.0.0',
-    description: 'API agnóstica de Commerce conforme documentação OmniChat SearchProduct',
+    name: 'API Mock Beto Carrero World',
+    version: '3.0',
+    specification: 'OmniChat SearchProduct API',
+    documentation: 'https://developers.omni.chat/docs/how-to-implement-the-searchproduct-api',
     endpoints: {
-      search: 'GET /search',
-      health: 'GET /health'
+      health: 'GET /health',
+      search: 'GET /search (conforme OmniChat spec)',
+      products_search: 'GET /products/search (compatibilidade)',
+      product_detail: 'GET /products/{productId}'
     },
-    documentation: 'Conforme https://developers.omni.chat/docs/how-to-implement-the-searchproduct-api'
+    auth: {
+      type: 'Bearer Token',
+      example_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiZXRvY2FycmVyb195cmV0YWlsZXIiLCJpYXQiOjE3MjQxMDAwMDB9.abc123xyz',
+      note: 'Use Bearer any-token-works para testes'
+    }
   });
 });
 
 // ========== SEARCH PRODUCT ENDPOINT (Conforme OmniChat API) ==========
+// RETORNA: Array direto de produtos (NÃO é um objeto com propriedade "products")
 app.get('/search', authenticateToken, (req, res) => {
   // Parâmetros conforme documentação OmniChat
   const query = req.query.query || '';
@@ -690,6 +1064,7 @@ app.get('/search', authenticateToken, (req, res) => {
   const paginados = resultado.slice(from, from + size);
 
   // Retornar resposta conforme documentação OmniChat
+  // IMPORTANTE: Retorna um ARRAY direto, não um objeto com propriedade "products"
   res.json(paginados);
 });
 
@@ -719,6 +1094,7 @@ app.get('/products/search', authenticateToken, (req, res) => {
 
   const paginados = resultado.slice(from, from + size);
 
+  // Este endpoint retorna em formato com metadados (compatibilidade)
   res.json({
     products: paginados,
     pagination: {
@@ -745,7 +1121,10 @@ app.get('/products/:productId', authenticateToken, (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 API Mock Beto Carrero (v2.0 - Conforme OmniChat SearchProduct API) rodando em http://localhost:${PORT}`);
-  console.log(`📚 Acesse http://localhost:${PORT}/ para documentação`);
-  console.log(`🔍 Endpoint principal: GET /search?query=...&searchType=TEXT|ID|SKUID|URL|REFERENCE`);
+  console.log(`🚀 API Mock Beto Carrero (v3.0 - OmniChat SearchProduct API) rodando`);
+  console.log(`📡 Porta: ${PORT}`);
+  console.log(`🔗 URL: http://localhost:${PORT}`);
+  console.log(`📚 Documentação: http://localhost:${PORT}/`);
+  console.log(`🔍 Busca: http://localhost:${PORT}/search (com token)`);
+  console.log(`✅ Health: http://localhost:${PORT}/health`);
 });
