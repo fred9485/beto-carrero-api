@@ -927,15 +927,8 @@ app.get('/products/search', authenticateToken, (req, res) => {
 
   const paginados = resultado.slice(from, from + size);
 
-  res.json({
-    products: paginados,
-    pagination: {
-      from,
-      size: paginados.length,
-      total: resultado.length,
-      pages: Math.ceil(resultado.length / size)
-    }
-  });
+  // Retorna array direto (mesmo formato do /search)
+  res.json(paginados);
 });
 
 // Buscar produto por ID
