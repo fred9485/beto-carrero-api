@@ -1,0 +1,29 @@
+{
+  "name": "beto-carrero-api-mock",
+  "version": "1.0.0",
+  "description": "API Mock para Beto Carrero World - Testes de Agentes Conversacionais",
+  "main": "api-mock-server.js",
+  "scripts": {
+    "start": "node api-mock-server.js",
+    "dev": "nodemon api-mock-server.js"
+  },
+  "keywords": [
+    "api",
+    "mock",
+    "beto-carrero",
+    "agentes-conversacionais",
+    "commerce"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
